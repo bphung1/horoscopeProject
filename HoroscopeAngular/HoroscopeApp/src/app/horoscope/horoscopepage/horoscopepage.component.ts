@@ -14,7 +14,6 @@ export class HoroscopepageComponent implements OnInit {
   }
 
   goToProfile() {
-    this.router.navigate(['/profile']);
+    this.router.navigate(['profile']);
   }
-
 }
