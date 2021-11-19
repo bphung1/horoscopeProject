@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  submitted = false;
+
+  @ViewChild('f', { static: false }) signupForm: NgForm;
 
   constructor(private router: Router) { }
 
@@ -25,4 +29,7 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['/horoscope']);
   }
 
+  onSubmit() {
+    console.log("Hello world");
+  }
 }
