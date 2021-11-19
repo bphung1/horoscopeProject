@@ -9,7 +9,6 @@ public interface PredictionDao {
 
     Prediction addPrediction(Prediction prediction);
     Prediction getPredictionById(int predictionId);
-    Prediction editPrediction(Prediction prediction);
     boolean deletePrediction(Prediction prediction);
 
     List<Prediction> getPredictionsForUser(String username);
