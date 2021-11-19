@@ -1,6 +1,6 @@
 <p>HALLO NIECES AND NEPHEWS</p>
 
-<div>
+<div class="col-6" id='formInput'>
     <form (ngSubmit)="generateHoroscope()" #f="ngForm">
         <div
             id="user-data"
@@ -12,6 +12,7 @@
                     type="text"
                     id="name"
                     class="form-control"
+                    ngModel
                     name="name"
                     placeholder="Name"
                     required
@@ -35,6 +36,7 @@
         </button>
     </form>
 </div>
+
 
 <div>
     <button (click)="goToLogin()">Go to Login Page</button>
