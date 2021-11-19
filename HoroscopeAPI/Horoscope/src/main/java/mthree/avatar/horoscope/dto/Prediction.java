@@ -14,4 +14,37 @@ public class Prediction {
     private String luckyUniversity;
     private String jokeOfTheDay;
 
+
+    public int getPredictionId() {
+        return predictionId;
+    }
+
+    public void setPredictionId(int predictionId) {
+        this.predictionId = predictionId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getHoroscope() {
+        return horoscope;
+    }
+
+    public void setHoroscope(String horoscope) {
+        this.horoscope = horoscope;
+    }
+
 }
