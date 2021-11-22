@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Prediction {
-
     private int predictionId;
     private String username;
     private LocalDateTime timestamp;
@@ -12,7 +11,7 @@ public class Prediction {
     private String fortuneCookie;
     private int luckyNumbers;
     private String luckySportsTeam;
-    private String luckyUniversity;
+    private String luckyMovie;
     private String jokeOfTheDay;
 
 
@@ -47,6 +46,48 @@ public class Prediction {
     public void setHoroscope(String horoscope) {
         this.horoscope = horoscope;
     }
+
+    public String getFortuneCookie() {
+        return fortuneCookie;
+    }
+
+    public void setFortuneCookie(String fortuneCookie) {
+        this.fortuneCookie = fortuneCookie;
+    }
+
+    public int getLuckyNumbers() {
+        return luckyNumbers;
+    }
+
+    public void setLuckyNumbers(int luckyNumbers) {
+        this.luckyNumbers = luckyNumbers;
+    }
+
+    public String getLuckySportsTeam() {
+        return luckySportsTeam;
+    }
+
+    public void setLuckySportsTeam(String luckySportsTeam) {
+        this.luckySportsTeam = luckySportsTeam;
+    }
+
+    public String getLuckyMovie() {
+        return luckyMovie;
+    }
+
+    public void setLuckyMovie(String luckyMovie) {
+        this.luckyMovie = luckyMovie;
+    }
+
+    public String getJokeOfTheDay() {
+        return jokeOfTheDay;
+    }
+
+    public void setJokeOfTheDay(String jokeOfTheDay) {
+        this.jokeOfTheDay = jokeOfTheDay;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
