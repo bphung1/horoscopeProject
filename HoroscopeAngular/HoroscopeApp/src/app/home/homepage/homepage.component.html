@@ -2,49 +2,65 @@
     <h1>HOROSCOPE</h1>
     <h3>DELUXE</h3>
 
-    <div class="col-6" id='formInput'>
-        <form (ngSubmit)="generateHoroscope()" #f="ngForm">
-            <div
-                id="user-data"
-                ngModelGroup="userData"
-                #userData="ngModelGroup"
-            >
-                <div class="form-group">
-                    <input 
-                        type="text"
-                        id="name"
-                        class="form-control"
-                        ngModel
-                        name="name"
-                        placeholder="Name"
-                        required
-                    />
-                </div>
-                <div class="form-group">
-                    <input 
-                        type="date"
-                        id="birthday"
-                        class="form-control"
-                        ngModel
-                        name="birthday"
-                        required
-                    />
-                </div>
-            </div>
-            <button
-                class="btn btn-primary"
-                type="submit"
-                [disabled]="!f.valid"
-            >
-            Generate Horoscope
-            </button>
-        </form>
-    </div>
+    <ngContainer *ngIf="!user">
 
-    <div>
-        <button (click)="goToLogin()">Go to Login Page</button>
-    </div>
-    <div>
-        <button (click)="goToCreateNewUser()">Create New Account</button>
-    </div>
+        <div class="col-6" id='formInput'>
+            <form (ngSubmit)="generateHoroscope()" #f="ngForm">
+                <div
+                    id="user-data"
+                    ngModelGroup="userData"
+                    #userData="ngModelGroup"
+                >
+                    <div class="form-group">
+                        <input 
+                            type="text"
+                            id="name"
+                            class="form-control"
+                            ngModel
+                            name="name"
+                            placeholder="Name"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input 
+                            type="date"
+                            id="birthday"
+                            class="form-control"
+                            ngModel
+                            name="birthday"
+                            required
+                        />
+                    </div>
+                </div>
+                <button
+                    class="btn btn-primary"
+                    type="submit"
+                    [disabled]="!f.valid"
+                >
+                Generate Horoscope
+                </button>
+            </form>
+        </div>
+
+        <div>
+            <button (click)="goToLogin()">Go to Login Page</button>
+        </div>
+        <div>
+            <button (click)="goToCreateNewUser()">Create New Account</button>
+        </div>
+    </ngContainer>
+
+    <ngContainer *ngIf="user">
+        <h3>{{ user.username }}</h3>
+        <h2>{{ birthday }}</h2>
+
+        <button
+            class="btn btn-primary"
+            (click)="generateHoroscope()"
+        >
+        Generate Horoscope
+        </button>
+    </ngContainer>
+    
 </div>
