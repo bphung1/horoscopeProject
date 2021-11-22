@@ -40,13 +40,13 @@ public class HoroscopeController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/update/{id}")
+    @PutMapping("/update")
     public User updateUserInfo(@RequestBody User user) {
         return service.updateUserInfo(user);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete")
     public boolean deleteHoroscope(@RequestBody Prediction prediction) {
         return service.deleteHoroscope(prediction);
     }

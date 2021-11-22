@@ -8,6 +8,7 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 import { NewUserModule } from './new-user/new-user.module';
 import { ProfileModule } from './profile/profile.module';
+import { HoroscopeModule } from './horoscope/horoscope.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProfileModule } from './profile/profile.module';
     AppRoutingModule,
     HomeModule,
     LoginModule,
+    HoroscopeModule,
     NewUserModule,
     ProfileModule
   ],

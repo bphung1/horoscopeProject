@@ -29,10 +29,10 @@ public class HoroscopeService {
 
     public User createAccount(User user) {
         if (userDao.getUserByUsername(user.getUsername()) == null) {
-            return null;
+            return userDao.addUser(user);
         }
         else {
-            return userDao.addUser(user);
+            return null;
         }
     }
 
@@ -55,6 +55,7 @@ public class HoroscopeService {
         prediction.setLuckyNumbers(getLuckyNumber());
         prediction.setLuckySportsTeam(getSportsTeam());
         prediction.setLuckyMovie(getMovie());
+        prediction.setJokeOfTheDay(getJoke());
 
         return predictionDao.addPrediction(prediction);
     }
