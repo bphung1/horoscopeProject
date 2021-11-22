@@ -15,7 +15,7 @@ export class ProfilepageComponent implements OnInit {
   prediction: Prediction;
   username = 'JMoney69420';
   name = 'Jon';
-  birthday = new Date(500000000000);  
+  birthday = new Date(500000000000);
 
   constructor(private router: Router) { }
 
