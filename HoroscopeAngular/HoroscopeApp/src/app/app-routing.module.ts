@@ -8,8 +8,10 @@ import { ProfilepageComponent } from './profile/profilepage/profilepage.componen
 
 const routes: Routes = [
   { path: 'homepage', component: HomepageComponent},
+  { path: 'homepage/:username', component: HomepageComponent},
   { path: 'login', component: LoginpageComponent},
   { path: 'horoscope', component: HoroscopepageComponent},
+  { path: 'horoscope/:username', component: HoroscopepageComponent},
   { path: 'new-user', component: NewUserpageComponent},
   { path: 'profile', component: ProfilepageComponent},
   { path: '', redirectTo: '/homepage', pathMatch: 'full'},
