@@ -1,5 +1,7 @@
 package mthree.avatar.horoscope.dao;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 
 public class ApiCallTest {
@@ -8,7 +10,8 @@ public class ApiCallTest {
         WebClient client = WebClient.create();
 
         WebClient.ResponseSpec responseSpec = client.get()
-                .uri("https://ohmanda.com/api/horoscope/leo/")
+                .uri("https://icanhazdadjoke.com/")
+                .accept(MediaType.TEXT_PLAIN)
                 .retrieve();
 
         String responseBody = responseSpec.bodyToMono(String.class).block();
