@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 @Component
 public class UserDaoImpl implements UserDao {
@@ -56,7 +57,8 @@ public class UserDaoImpl implements UserDao {
         jdbc.update(EDIT_USER,
                 user.getPassword(),
                 user.getName(),
-                Date.valueOf(user.getBirthday()));
+                Date.valueOf(user.getBirthday()),
+                user.getUsername());
 
         return user;
     }
@@ -81,7 +83,7 @@ public class UserDaoImpl implements UserDao {
             user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setName(rs.getString("name"));
-            user.setBirthday(rs.getDate("birthday").toLocalDate());
+            user.setBirthday(rs.getObject("birthday", LocalDate.class));
 
             return user;
         }

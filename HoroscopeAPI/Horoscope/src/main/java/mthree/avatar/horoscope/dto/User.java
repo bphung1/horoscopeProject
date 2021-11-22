@@ -2,6 +2,7 @@ package mthree.avatar.horoscope.dto;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
 
@@ -49,5 +50,18 @@ public class User {
 
     public void setPredictions(List<Prediction> predictions) {
         this.predictions = predictions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(name, user.name) && Objects.equals(birthday, user.birthday) && Objects.equals(predictions, user.predictions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password, name, birthday, predictions);
     }
 }
