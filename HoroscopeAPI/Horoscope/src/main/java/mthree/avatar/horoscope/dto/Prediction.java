@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Prediction {
-
     private int predictionId;
     private String username;
     private LocalDateTime timestamp;

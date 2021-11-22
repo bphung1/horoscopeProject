@@ -1,2 +1,129 @@
-<p>profilepage works!</p>
-<button (click)='goToHomePage()'>Home</button>
+<div class = "container">
+  <h1>Welcome {{username}}!</h1>
+
+  <div class="col-6">
+
+    <div class = "buttonContainerStyle">
+
+      <div>
+
+        <button
+          class="buttonStyle"
+          type="submit">
+          Generate Horoscope
+        </button>
+      </div>
+
+      <br>
+
+      <div>
+        <button
+          class="buttonStyle"
+          (click)='goToHomePage()'>
+          Home
+        </button>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class = "prevHoroscopeContainer">
+      <h5>Previous Horoscopes</h5>
+
+
+
+      <ul class="prediction" >
+        <li *ngFor="let prediction of predictions"
+            [class.selected]="prediction === prediction"
+        >
+          <h2>{{prediction.name | uppercase}}</h2>
+
+          <div><strong>ID: </strong>{{ prediction.predictionID }}</div>
+          <div><strong>Sign : </strong> {{ prediction.sign }}</div>
+          <div><strong>Horoscope : </strong> {{ prediction.horoscope }}</div>
+          <div><strong>Fortune Cookie : </strong> {{ prediction.fortuneCookie }}</div>
+          <div><strong>Lucky Number : </strong> {{ prediction.luckyNumber }}</div>
+          <div><strong>Joke of the Day : </strong> {{ prediction.jokeOfTheDay }}</div>
+
+
+
+          <span class="badge">{{prediction.id}}</span> {{prediction.timestamp}}
+        </li>
+      </ul>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <h5>Update Profile Information</h5>
+    <form (ngSubmit)="updateUser()" #f="ngForm">
+      <div id="user-data">
+
+
+        <p>Password</p>
+        <div class="form-group">
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            ngModel
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <p>Name</p>
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            ngModel
+            name="name"
+            placeholder="Name"
+            required
+          />
+        </div>
+
+        <p>Birthday</p>
+        <div class="form-group">
+          <input
+            type="date"
+            id="birthday"
+            class="form-control"
+            ngModel
+            name="birthday"
+            label="birthday"
+            required
+          />
+        </div>
+
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!f.valid"
+      >
+
+        Update Profile Information
+      </button>
+    </form>
+
+
+
+
+  </div>
+
+</div>
