@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 
+import { LoginModule } from './login/login.module';
+
+import { NewUserModule } from './new-user/new-user.module';
+import { ProfileModule } from './profile/profile.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +17,10 @@ import { HomeModule } from './home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    LoginModule,
+    NewUserModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]
