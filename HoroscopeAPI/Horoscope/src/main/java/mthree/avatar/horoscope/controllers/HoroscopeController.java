@@ -6,6 +6,8 @@ import mthree.avatar.horoscope.service.HoroscopeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class HoroscopeController {
@@ -20,41 +22,31 @@ public class HoroscopeController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/login")
-    public void login(@RequestBody User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
-        // return service.login(user);
+    public User login(@RequestBody User user) {
+        return service.login(user);
     }
-
-//    @CrossOrigin(origins = "http://localhost:4200")
-//    @GetMapping("/logout")
-//    public void logout() {
-//
-//    }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/generate")
     public void generateHoroscope(@RequestBody User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
-        // return service.generateHoroscope(user);
+        //return service.generateHoroscope(user);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{username}")
-    public void getAllHoroscopes(@PathVariable String username) {
-        // return service.getAllHoroscopes(username);
+    public List<Prediction> getAllHoroscopes(@PathVariable String username) {
+        return service.getAllHoroscopes(username);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/update/{id}")
-    public void updateUserInfo(@RequestBody User user) {
-        throw new UnsupportedOperationException("Not supported yet.");
-        // return service.updateUserInfO(user);
+    public User updateUserInfo(@RequestBody User user) {
+        return service.updateUserInfo(user);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/delete/{id}")
-    public void deleteHoroscope(@RequestBody Prediction prediction) {
-        throw new UnsupportedOperationException("Not supported yet.");
-        // return service.deleteHoroscope(prediction);
+    public boolean deleteHoroscope(@RequestBody Prediction prediction) {
+        return service.deleteHoroscope(prediction);
     }
 }
