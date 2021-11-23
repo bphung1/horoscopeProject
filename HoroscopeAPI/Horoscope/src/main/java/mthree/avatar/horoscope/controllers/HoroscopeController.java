@@ -22,7 +22,7 @@ public class HoroscopeController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/login")
+    @PostMapping("/login")
     public User login(@RequestBody User user) {
         return service.login(user);
     }

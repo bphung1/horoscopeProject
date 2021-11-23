@@ -23,8 +23,8 @@ public class PredictionDaoImpl implements PredictionDao {
     @Transactional
     public Prediction addPrediction(Prediction prediction) {
         final String INSERT_PREDICTION = "INSERT INTO predictions(username, timestamp, horoscope, " +
-                                                                "fortuneCookie, luckyNumbers, luckySportsTeam, " +
-                                                                "luckyMovie, jokeOfTheDay) VALUES (?,?,?,?,?,?,?,?);";
+                                                                "fortuneCookie, luckyNumber, " +
+                                                                "jokeOfTheDay) VALUES (?,?,?,?,?,?,?,?);";
 
         jdbc.update(INSERT_PREDICTION,
                 prediction.getUsername(),
@@ -32,8 +32,6 @@ public class PredictionDaoImpl implements PredictionDao {
                 prediction.getHoroscope(),
                 prediction.getFortuneCookie(),
                 prediction.getLuckyNumbers(),
-                prediction.getLuckySportsTeam(),
-                prediction.getLuckyMovie(),
                 prediction.getJokeOfTheDay());
 
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
@@ -81,9 +79,7 @@ public class PredictionDaoImpl implements PredictionDao {
             pred.setTimestamp(rs.getTimestamp("timestamp").toLocalDateTime());
             pred.setHoroscope(rs.getString("horoscope"));
             pred.setFortuneCookie(rs.getString("fortuneCookie"));
-            pred.setLuckyNumbers(rs.getInt("luckyNumbers"));
-            pred.setLuckySportsTeam(rs.getString("luckySportsTeam"));
-            pred.setLuckyMovie(rs.getString("luckyMovie"));
+            pred.setLuckyNumbers(rs.getInt("luckyNumber"));
             pred.setJokeOfTheDay(rs.getString("jokeOfTheDay"));
 
             return pred;
