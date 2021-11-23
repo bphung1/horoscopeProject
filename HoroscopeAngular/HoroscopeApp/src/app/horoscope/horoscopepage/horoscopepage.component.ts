@@ -16,7 +16,7 @@ export class HoroscopepageComponent implements OnInit {
   account$: Observable<User>;
   user: User;
 
-  predictions = PREDICTIONS;
+  predictions = PREDICTIONS; //replace PREDICTIONS with api call for all prediction
   prediction: Prediction;
   selectedHoroscopeDate: string;
 
@@ -37,7 +37,7 @@ export class HoroscopepageComponent implements OnInit {
   }
 
   goToProfile() {
-    this.router.navigate(['profile']);
+    this.router.navigate(['profile', this.user.username]);
   }
 
   setCorrectDateFormat() {

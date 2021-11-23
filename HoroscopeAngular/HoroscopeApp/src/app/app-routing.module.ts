@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'horoscope', component: HoroscopepageComponent},
   { path: 'horoscope/:username', component: HoroscopepageComponent},
   { path: 'new-user', component: NewUserpageComponent},
-  { path: 'profile', component: ProfilepageComponent},
+  { path: 'profile/:username', component: ProfilepageComponent},
   { path: '', redirectTo: '/homepage', pathMatch: 'full'},
 ];
 

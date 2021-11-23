@@ -34,7 +34,7 @@ export class LoginpageComponent implements OnInit {
       this.signupForm.reset();
       alert('Incorrect User/Password');
     } else {
-      this.router.navigate(['homepage', this.user.username]);
+      this.router.navigate(['profile', this.user.username]);
     }
 
   }
