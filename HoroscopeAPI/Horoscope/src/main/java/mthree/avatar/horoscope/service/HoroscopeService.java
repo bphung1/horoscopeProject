@@ -49,6 +49,7 @@ public class HoroscopeService {
         prediction.setUsername(user.getUsername());
         prediction.setTimestamp(LocalDateTime.now());
         prediction.setHoroscope(getHoroscope(user.getBirthday()));
+        prediction.setSign(getSign(user.getBirthday()));
         prediction.setFortuneCookie(getFortune());
         prediction.setLuckyNumber(getLuckyNumber());
         prediction.setJokeOfTheDay(getJoke());

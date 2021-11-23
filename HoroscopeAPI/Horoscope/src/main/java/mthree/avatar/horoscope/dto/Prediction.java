@@ -8,6 +8,7 @@ public class Prediction {
     private String username;
     private LocalDateTime timestamp;
     private String horoscope;
+    private String sign;
     private String fortuneCookie;
     private int luckyNumber;
     private String jokeOfTheDay;
@@ -43,6 +44,14 @@ public class Prediction {
 
     public void setHoroscope(String horoscope) {
         this.horoscope = horoscope;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 
     public String getFortuneCookie() {
