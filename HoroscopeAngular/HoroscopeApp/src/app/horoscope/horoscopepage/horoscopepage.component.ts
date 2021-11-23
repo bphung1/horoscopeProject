@@ -56,8 +56,5 @@ export class HoroscopepageComponent implements OnInit {
       this.router.navigate(['homepage']);
     }
 
-  savePredictions() {
-    console.log('call api to save');
-  }
 
 }
