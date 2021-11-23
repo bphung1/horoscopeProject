@@ -16,7 +16,7 @@ export class HoroscopepageComponent implements OnInit {
   account$: Observable<User>;
   user: User;
 
-  predictions = PREDICTIONS; //replace PREDICTIONS with api call for all prediction
+  prediction$: Observable<Prediction>; 
   prediction: Prediction;
   selectedHoroscopeDate: string;
 
@@ -27,43 +27,33 @@ export class HoroscopepageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.getRandomHoroscope();
-    this.setCorrectDateFormat();
-    // this.account$ = this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap) =>
-    //   this.service.getAccount(params.get('username')!))
-    // );
-    // this.account$.subscribe(data => this.user = data);
+    if (!this.service.userFromAPI) {
+      this.service.getAccount('Anonymous', '0000');
+    }
+
+    this.account$ = this.service.userFromAPI;
+    this.account$.subscribe(data => {
+      this.user = data;
+      if (data.birthday === '0001-01-01') {
+        this.user.birthday = this.service.birthdayIfAnonymous;
+      }
+      console.log(this.user);
+
+      this.prediction$ = this.service.getHoroscope(this.user.username, this.user.birthday);
+      this.prediction$.subscribe(dt => {
+        this.prediction = dt;
+        console.log(dt);
+      })
+    });
+    
   }
 
   goToProfile() {
     this.router.navigate(['profile', this.user.username]);
   }
 
-  setCorrectDateFormat() {
-    let d = new Date(this.prediction.timestamp),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
-
-    this.selectedHoroscopeDate = [month, day, year].join('-');
-  }
-
-  getRandomHoroscope() {
-    let random = this.getRandomNumber(this.predictions.length);
-    this.prediction = this.predictions[random];
-  }
-
   savePredictions() {
     console.log('call api to save');
   }
 
-  private getRandomNumber(bound: number) {
-    return Math.floor(Math.random() * bound);
-  }
 }

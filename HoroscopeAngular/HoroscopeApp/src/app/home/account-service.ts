@@ -21,6 +21,7 @@ export class AccountService {
   }
 
   userFromAPI: Observable<any>;
+  birthdayIfAnonymous: string;
 
   //api call for get user
   getAccount (username: string | string, password: string | string) {
@@ -34,6 +35,20 @@ export class AccountService {
 
   getPredictionsByUser(username: string | string) {
     return this.http.get<any>(this.url + '/' + username);
+  }
+
+  getHoroscope(username: string | string, birthday: string | string) {
+    if (this.userFromAPI) {
+      return this.http.post<any>(this.url + '/generate', {
+        'username': username,
+        'birthday': birthday
+      });
+    } else {
+      return this.http.post<any>(this.url + '/generate', {
+        'username': 'Anonymous',
+        'birthday': birthday
+      });
+    }
   }
 
 }

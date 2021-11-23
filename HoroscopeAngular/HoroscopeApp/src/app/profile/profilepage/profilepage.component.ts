@@ -33,8 +33,7 @@ export class ProfilepageComponent implements OnInit {
       let x = this.service.getPredictionsByUser(this.user.username);
       x.subscribe(dt => {
         this.predictions = dt;
-        console.log(dt);
-    })
+      })
     });
   }
 

@@ -26,14 +26,11 @@ export class HomepageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // this.account$ = this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap) =>
-    //   this.service.getAccount(params.get('username')!))
-    // );
-    // this.account$.subscribe(data => this.user = data);
-    // if (this.user) {
-    //   this.setCorrectDateFormat();
-    // }
+    this.account$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+      this.service.userFromAPI)
+    );
+    this.account$.subscribe(data => this.user = data);
   }
 
   goToLogin() {
@@ -48,6 +45,7 @@ export class HomepageComponent implements OnInit {
     if (this.user) {
       this.router.navigate(['/horoscope', this.user.username]);
     } else {
+      this.service.birthdayIfAnonymous = this.signupForm.value.userData.birthday;
       this.router.navigate(['/horoscope']);
     }
   }
