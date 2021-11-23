@@ -24,9 +24,6 @@ public class HoroscopeController {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/login")
     public User login(@RequestBody User user) {
-        System.out.println("hello world");
-        User usertest = service.login(user);
-        System.out.println(usertest);
         return service.login(user);
     }
 

@@ -17,7 +17,7 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   getAccounts(): Observable<User[]> {
-    return of(USERS); 
+    return of(USERS);
   }
 
   userFromAPI: Observable<any>;
@@ -36,6 +36,22 @@ export class AccountService {
   getPredictionsByUser(username: string | string) {
     return this.http.get<any>(this.url + '/' + username);
   }
+
+  postNewAccount (username: string | string, password: string | string, name: string | string, birthday : string | string) {
+    let user = this.http.post<any>(this.url + '/create' , {
+      'username': username,
+      'password': password,
+      'name': name,
+      'birthday': birthday
+    });
+
+    this.userFromAPI = user;
+
+    console.log(user);
+
+    return user;
+  }
+
 
   getHoroscope(username: string | string, birthday: string | string) {
     if (this.userFromAPI) {

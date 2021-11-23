@@ -30,7 +30,10 @@ export class HomepageComponent implements OnInit {
       switchMap((params: ParamMap) =>
       this.service.userFromAPI)
     );
-    this.account$.subscribe(data => this.user = data);
+    this.account$.subscribe(data => {
+      this.user = data;
+      console.log(data);
+    });
   }
 
   goToLogin() {

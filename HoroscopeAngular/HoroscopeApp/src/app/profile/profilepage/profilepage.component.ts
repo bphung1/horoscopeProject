@@ -47,6 +47,7 @@ export class ProfilepageComponent implements OnInit {
 
   generatePrediction() {
      if (this.user) {
+       this.service.userFromAPI = this.account$;
        this.router.navigate(['/horoscope', this.user.username]);
      } else {
        this.router.navigate(['/horoscope']);
