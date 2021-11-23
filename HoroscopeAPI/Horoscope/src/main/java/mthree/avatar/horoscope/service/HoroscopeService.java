@@ -53,8 +53,6 @@ public class HoroscopeService {
         prediction.setHoroscope(getHoroscope(user.getBirthday()));
         prediction.setFortuneCookie(getFortune());
         prediction.setLuckyNumbers(getLuckyNumber());
-        prediction.setLuckySportsTeam(getSportsTeam());
-        prediction.setLuckyMovie(getMovie());
         prediction.setJokeOfTheDay(getJoke());
 
         return predictionDao.addPrediction(prediction);
@@ -130,18 +128,6 @@ public class HoroscopeService {
     private int getLuckyNumber() {
         Random random = new Random();
         return random.nextInt(100) + 1;
-    }
-
-    private String getSportsTeam() throws IOException {
-        Random random = new Random();
-        int randNum = random.nextInt(160);
-        return Files.readAllLines(Paths.get("sportsteams.txt")).get(randNum);
-    }
-
-    private String getMovie() throws IOException {
-        Random random = new Random();
-        int randNum = random.nextInt(250);
-        return Files.readAllLines(Paths.get("movies.txt")).get(randNum);
     }
 
     private String getSign(LocalDate birthday) {

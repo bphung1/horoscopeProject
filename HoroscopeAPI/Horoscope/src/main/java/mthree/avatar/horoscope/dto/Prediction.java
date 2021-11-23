@@ -10,8 +10,6 @@ public class Prediction {
     private String horoscope;
     private String fortuneCookie;
     private int luckyNumbers;
-    private String luckySportsTeam;
-    private String luckyMovie;
     private String jokeOfTheDay;
 
 
@@ -61,22 +59,6 @@ public class Prediction {
 
     public void setLuckyNumbers(int luckyNumbers) {
         this.luckyNumbers = luckyNumbers;
-    }
-
-    public String getLuckySportsTeam() {
-        return luckySportsTeam;
-    }
-
-    public void setLuckySportsTeam(String luckySportsTeam) {
-        this.luckySportsTeam = luckySportsTeam;
-    }
-
-    public String getLuckyMovie() {
-        return luckyMovie;
-    }
-
-    public void setLuckyMovie(String luckyMovie) {
-        this.luckyMovie = luckyMovie;
     }
 
     public String getJokeOfTheDay() {
