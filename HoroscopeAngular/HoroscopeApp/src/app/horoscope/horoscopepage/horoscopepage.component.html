@@ -7,8 +7,9 @@
     <p><strong>Fortune Cookie: </strong>{{ prediction.fortuneCookie }}</p>
     <p><strong>Lucky Number: </strong>{{ prediction.luckyNumber }}</p>
     <p><strong>Joke of the Day: </strong>{{ prediction.jokeOfTheDay }}</p>
-    <div *ngIf="user">
+    <div *ngIf="user.username !== 'Anonymous'">
         <button (click)="savePredictions()">Save</button>
         <button (click)="goToProfile()">Profile</button>
     </div>
+    <button (click)="goToHome()">Home</button>
 </div>

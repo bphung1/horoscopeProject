@@ -41,8 +41,17 @@ export class ProfilepageComponent implements OnInit {
       console.log("update user")
     }
 
-  goToHomePage() {
-    this.router.navigate(['homepage', this.user.username]);
-  }
+  goToHome() {
+         this.router.navigate(['homepage/' + this.user.username]);
+       }
+
+  generatePrediction() {
+     if (this.user) {
+       this.router.navigate(['/horoscope', this.user.username]);
+     } else {
+       this.service.birthdayIfAnonymous = this.signupForm.value.userData.birthday;
+       this.router.navigate(['/horoscope']);
+     }
+   }
 
 }
