@@ -49,7 +49,6 @@ export class ProfilepageComponent implements OnInit {
      if (this.user) {
        this.router.navigate(['/horoscope', this.user.username]);
      } else {
-       this.service.birthdayIfAnonymous = this.signupForm.value.userData.birthday;
        this.router.navigate(['/horoscope']);
      }
    }
