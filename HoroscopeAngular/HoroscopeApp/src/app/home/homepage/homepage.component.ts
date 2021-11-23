@@ -26,14 +26,14 @@ export class HomepageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.account$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-      this.service.getAccount(params.get('username')!))
-    );
-    this.account$.subscribe(data => this.user = data);
-    if (this.user) {
-      this.setCorrectDateFormat();
-    }
+    // this.account$ = this.route.paramMap.pipe(
+    //   switchMap((params: ParamMap) =>
+    //   this.service.getAccount(params.get('username')!))
+    // );
+    // this.account$.subscribe(data => this.user = data);
+    // if (this.user) {
+    //   this.setCorrectDateFormat();
+    // }
   }
 
   goToLogin() {

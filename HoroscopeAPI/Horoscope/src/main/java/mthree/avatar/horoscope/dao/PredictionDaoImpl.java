@@ -24,14 +24,14 @@ public class PredictionDaoImpl implements PredictionDao {
     public Prediction addPrediction(Prediction prediction) {
         final String INSERT_PREDICTION = "INSERT INTO predictions(username, timestamp, horoscope, " +
                                                                 "fortuneCookie, luckyNumber, " +
-                                                                "jokeOfTheDay) VALUES (?,?,?,?,?,?,?,?);";
+                                                                "jokeOfTheDay) VALUES (?,?,?,?,?,?);";
 
         jdbc.update(INSERT_PREDICTION,
                 prediction.getUsername(),
                 Timestamp.valueOf(prediction.getTimestamp()),
                 prediction.getHoroscope(),
                 prediction.getFortuneCookie(),
-                prediction.getLuckyNumbers(),
+                prediction.getLuckyNumber(),
                 prediction.getJokeOfTheDay());
 
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
@@ -79,7 +79,7 @@ public class PredictionDaoImpl implements PredictionDao {
             pred.setTimestamp(rs.getTimestamp("timestamp").toLocalDateTime());
             pred.setHoroscope(rs.getString("horoscope"));
             pred.setFortuneCookie(rs.getString("fortuneCookie"));
-            pred.setLuckyNumbers(rs.getInt("luckyNumber"));
+            pred.setLuckyNumber(rs.getInt("luckyNumber"));
             pred.setJokeOfTheDay(rs.getString("jokeOfTheDay"));
 
             return pred;

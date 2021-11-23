@@ -17,8 +17,8 @@ import { switchMap } from 'rxjs/operators';
 export class ProfilepageComponent implements OnInit {
   account$: Observable<User>;
   user: User;
-  predictions = PREDICTIONS;
-  prediction: Prediction;
+  predictions: Prediction[];
+  predictions$: Observable<Prediction[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,11 +27,15 @@ export class ProfilepageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.account$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-      this.service.getAccount(params.get('username')!))
-    );
-    this.account$.subscribe(data => this.user = data);
+    this.account$ = this.service.userFromAPI;
+    this.account$.subscribe(data => {
+      this.user = data;
+      let x = this.service.getPredictionsByUser(this.user.username);
+      x.subscribe(dt => {
+        this.predictions = dt;
+        console.log(dt);
+    })
+    });
   }
 
   updateUser() {

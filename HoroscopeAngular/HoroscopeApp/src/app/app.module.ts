@@ -9,6 +9,7 @@ import { LoginModule } from './login/login.module';
 import { NewUserModule } from './new-user/new-user.module';
 import { ProfileModule } from './profile/profile.module';
 import { HoroscopeModule } from './horoscope/horoscope.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { HoroscopeModule } from './horoscope/horoscope.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     HomeModule,
     LoginModule,
     HoroscopeModule,
     NewUserModule,
-    ProfileModule
+    ProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

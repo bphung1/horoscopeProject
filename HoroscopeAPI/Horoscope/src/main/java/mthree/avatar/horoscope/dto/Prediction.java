@@ -9,7 +9,7 @@ public class Prediction {
     private LocalDateTime timestamp;
     private String horoscope;
     private String fortuneCookie;
-    private int luckyNumbers;
+    private int luckyNumber;
     private String jokeOfTheDay;
 
 
@@ -53,12 +53,12 @@ public class Prediction {
         this.fortuneCookie = fortuneCookie;
     }
 
-    public int getLuckyNumbers() {
-        return luckyNumbers;
+    public int getLuckyNumber() {
+        return luckyNumber;
     }
 
-    public void setLuckyNumbers(int luckyNumbers) {
-        this.luckyNumbers = luckyNumbers;
+    public void setLuckyNumber(int luckyNumber) {
+        this.luckyNumber = luckyNumber;
     }
 
     public String getJokeOfTheDay() {

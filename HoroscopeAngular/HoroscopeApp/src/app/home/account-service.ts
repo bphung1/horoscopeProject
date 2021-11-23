@@ -5,20 +5,35 @@ import { map } from 'rxjs/operators';
 import { User } from '../model/user';
 import { USERS } from '../model/userTempData';
 
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
 
-  constructor() { }
+  url = 'http://localhost:8080/api';
+
+  constructor(private http: HttpClient) { }
 
   getAccounts(): Observable<User[]> {
-    return of(USERS);
+    return of(USERS); 
   }
 
-  getAccount(username: string | string) {
-    return this.getAccounts().pipe(
-      map((account: User[]) => account.find(acct => acct.username === username)!)
-    );
+  userFromAPI: Observable<any>;
+
+  //api call for get user
+  getAccount (username: string | string, password: string | string) {
+    let user = this.http.post<any>(this.url + '/login' , {
+      'username': username,
+      'password': password
+    });
+    this.userFromAPI = user;
+    return user;
   }
+
+  getPredictionsByUser(username: string | string) {
+    return this.http.get<any>(this.url + '/' + username);
+  }
+
 }

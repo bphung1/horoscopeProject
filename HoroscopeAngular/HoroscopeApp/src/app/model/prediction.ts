@@ -1,5 +1,5 @@
 export interface Prediction {
-    predictionID: number;
+    predictionId: number;
     timestamp: Date;
     sign: string;
     horoscope: string;

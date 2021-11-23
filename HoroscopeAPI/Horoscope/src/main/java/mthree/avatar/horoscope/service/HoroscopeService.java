@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -52,7 +50,7 @@ public class HoroscopeService {
         prediction.setTimestamp(LocalDateTime.now());
         prediction.setHoroscope(getHoroscope(user.getBirthday()));
         prediction.setFortuneCookie(getFortune());
-        prediction.setLuckyNumbers(getLuckyNumber());
+        prediction.setLuckyNumber(getLuckyNumber());
         prediction.setJokeOfTheDay(getJoke());
 
         return predictionDao.addPrediction(prediction);
