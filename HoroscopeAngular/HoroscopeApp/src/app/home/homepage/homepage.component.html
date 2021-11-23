@@ -2,7 +2,7 @@
     <h1>HOROSCOPE</h1>
     <h3>DELUXE</h3>
 
-    <ngContainer *ngIf="!user">
+    <ngContainer *ngIf="!user || user.username === 'Anonymous'">
 
         <div class="col-6" id='formInput'>
             <form (ngSubmit)="generateHoroscope()" #f="ngForm">
@@ -12,7 +12,7 @@
                     #userData="ngModelGroup"
                 >
                     <div class="form-group">
-                        <input 
+                        <input
                             type="text"
                             id="name"
                             class="form-control"
@@ -23,7 +23,7 @@
                         />
                     </div>
                     <div class="form-group">
-                        <input 
+                        <input
                             type="date"
                             id="birthday"
                             class="form-control"
@@ -40,7 +40,9 @@
                 >
                 Generate Horoscope
                 </button>
+
             </form>
+
         </div>
 
         <div>
@@ -51,7 +53,7 @@
         </div>
     </ngContainer>
 
-    <ngContainer *ngIf="user">
+    <ngContainer *ngIf="user && user.username !== 'Anonymous'" >
         <h3>{{ user.username }}</h3>
         <h2>{{ user.birthday }}</h2>
 
@@ -61,6 +63,10 @@
         >
         Generate Horoscope
         </button>
+
+      <div>
+        <button (click)="logout()">Log out</button>
+      </div>
     </ngContainer>
-    
+
 </div>

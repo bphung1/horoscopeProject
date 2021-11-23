@@ -16,7 +16,7 @@ export class HoroscopepageComponent implements OnInit {
   account$: Observable<User>;
   user: User;
 
-  prediction$: Observable<Prediction>; 
+  prediction$: Observable<Prediction>;
   prediction: Prediction;
   selectedHoroscopeDate: string;
 
@@ -45,12 +45,16 @@ export class HoroscopepageComponent implements OnInit {
         console.log(dt);
       })
     });
-    
+
   }
 
   goToProfile() {
     this.router.navigate(['profile', this.user.username]);
   }
+
+  goToHome() {
+      this.router.navigate(['homepage']);
+    }
 
   savePredictions() {
     console.log('call api to save');

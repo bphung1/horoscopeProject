@@ -54,15 +54,20 @@ export class HomepageComponent implements OnInit {
     console.log("Hello world");
   }
 
+  logout(){
+    this.service.getAccount('Anonymous', '0000');
+    this.router.navigate(['homepage']);
+  }
+
   setCorrectDateFormat() {
     let d = new Date(this.user.birthday),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
 
-    if (month.length < 2) 
+    if (month.length < 2)
         month = '0' + month;
-    if (day.length < 2) 
+    if (day.length < 2)
         day = '0' + day;
 
     this.birthday = [month, day, year].join('-');
